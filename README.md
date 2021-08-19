@@ -1,5 +1,5 @@
-# Intro To IT - Group Four - T12:30
- Repository for Group Four - Intro to IT
+# Intro To IT - Group Hmmm - T12:30
+ Repository for Group Hmmm - Intro to IT
 
  Tutor:
 
