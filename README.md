@@ -8,6 +8,9 @@
 Members:
 
 Simon Joel David Bird (s3916032)
+
 Alan Fogel
+
 Liam Folie
+
 Arjun Kumar
