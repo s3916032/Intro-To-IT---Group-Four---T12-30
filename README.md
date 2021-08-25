@@ -1,16 +1,13 @@
 # Intro To IT - Group Hmmm - T12:30
  Repository for Group Hmmm - Intro to IT
 
- Tutor:
-
+Tutor:  
  Anthony Clapp
 
-Members:
+Members:  
+ Simon Joel David Bird (s3916032)
+ Alan Fogel  
+ Liam Folie (s3605725)  
+ Arjun Kumar
 
-Simon Joel David Bird (s3916032)
-
-Alan Fogel
-
-Liam Folie (s3605725)
-
-Arjun Kumar
+Credits:  
