@@ -5,7 +5,7 @@ Tutor:
  Anthony Clapp
 
 Members:  
- Simon Joel David Bird (s3916032)
+ Simon Joel David Bird (s3916032)  
  Alan Fogel  
  Liam Folie (s3605725)  
  Arjun Kumar
