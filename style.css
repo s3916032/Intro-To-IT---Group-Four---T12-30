@@ -9,6 +9,7 @@ body {
   color: white;
   background-color: #2c2e2f;
   margin: 40px;
+  min-width: 200px;
 }
 
 /* If the screen is larger than 960px, increase the font-size and horizontal margin */
@@ -30,20 +31,38 @@ body {
 #top-header {
   color: white;
   padding-left: 20px;
+  display: inline-block;
 }
 
 #bottom-footer {
   font-size: 0.75em;
   color: #a2a2a2;
-  min-width: 200px;
+  min-width: inherit;
   text-align: center;
+}
+
+#breadcrumb-container {
+  text-align: center;
+  margin-top: inherit;
+  min-width: inherit;
+  margin: 20px auto;
+}
+
+#breadcrumb-container a {
+  text-decoration: none solid;
+  color: white;
+  background: border-box #5e73a7;
+  border-radius: 12px;
+  margin: 10px auto;
+  padding: 5px 40px;
+  display: inline-block;
 }
 
 .main-header {
   background-color: #5e73a7;
   padding: 10px 20px;
   border-radius: 12px;
-  min-width: 200px;
+  min-width: inherit;
 }
 
 .main-container {
