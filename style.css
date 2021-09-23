@@ -7,7 +7,7 @@ body {
   font-family: 'Arial Nova', Arial, sans-serif;
   font-size: 18px;
   color: #393939;
-  background-image: linear-gradient(to bottom, #cdcdcd, #e3e3e3 5% 90%, #6c6c6c);
+  background-image: linear-gradient(to bottom, #cdcdcd, #e3e3e3 200px 90%, #6c6c6c);
   margin: 10px 10% 40px 10%;
   min-width: 200px;
 }
@@ -24,7 +24,7 @@ body {
 }
 
 /* If the screen is smaller than 420px, decrease the font-size and margin */
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 400px) {
   body {
     font-size: 16px;
     margin: 20px 10px;
@@ -39,6 +39,8 @@ body {
 
   nav#breadcrumb-container a {
     width:auto;
+    flex-shrink: 0;
+    word-wrap: break-word;
   }
 
   div.image-container {
@@ -152,7 +154,6 @@ header.sub-header {
   width: 100%;
   margin-left: -12px;
   font-size: 0.8em;
-  min-width: inherit;
   color: #393939;
 }
 
@@ -161,11 +162,9 @@ div.main-container {
   text-align: justify;
   border-left: 6px solid rgba(20, 20, 20, 0.3);
   border-radius: 2px;
-  padding: 20px;
+  padding: 20px 10% 20px calc(10% + 12px);
   margin: 20px 0;
-  padding: auto;
   min-width: inherit;
-  max-width: 1920px;
   transition: border-left-width 0.2s 0.4s;
 }
 
