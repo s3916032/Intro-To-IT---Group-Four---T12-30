@@ -170,7 +170,6 @@ div.main-container {
 }
 
 div.sub-container {
-  word-wrap: break-word;
   font-size: 0.8em;
   color: #393939;
   margin: 10px;
@@ -178,9 +177,14 @@ div.sub-container {
 }
 
 div.sub-container img {
-  float: left;
   margin-right: 10px;
   margin-bottom: 10px;
+  width: 50%;
+  height: auto;
+  max-height: 350px;
+  max-width: 250px;
+  min-height: 150px;
+  min-width: 150px;
 }
 
 div.image-container {
@@ -221,6 +225,7 @@ div.line {
 
 .column {
   flex: 50%;
+}
 
 /* If the screen is larger than 1080px, increase the font-size and horizontal margin */
 @media only screen and (min-width: 1080px) {
@@ -262,5 +267,13 @@ div.line {
 
   div.sub-header {
     font-size: 0.8em;
+  }
+
+  div.sub-container img {
+    width: 50%;
+    height: auto;
+    margin: auto;
+    padding-right:15px;
+    padding-bottom:5px
   }
 }
