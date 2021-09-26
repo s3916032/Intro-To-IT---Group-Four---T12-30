@@ -9,53 +9,7 @@ body {
   color: #393939;
   background-image: linear-gradient(to bottom, #cdcdcd, #e3e3e3 200px 90%, #6c6c6c);
   margin: 10px 10% 40px 10%;
-  min-width: 200px;
-  min-height: 100vh;
-}
-
-/* If the screen is larger than 960px, increase the font-size and horizontal margin */
-@media only screen and (min-width: 960px) {
-  body {
-    margin: 40px 20%;
-  }
-
-  div.main-container {
-    padding: auto 30px;
-  }
-}
-
-/* If the screen is smaller than 420px, decrease the font-size and margin */
-@media only screen and (max-width: 400px) {
-  body {
-    font-size: 16px;
-    margin: 20px 10px;
-  }
-
-  nav#breadcrumb-container {
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-  }
-
-  nav#breadcrumb-container a {
-    width:auto;
-    flex-shrink: 0;
-    word-wrap: break-word;
-  }
-
-  div.image-container {
-    display: none;
-  }
-
-  div.sub-header {
-    font-size: 0.8em;
-  }
-
-  div.sub-container img {
-    float: none;
-    margin-bottom: 10px;
-  }
+  min-width: 100px;
 }
 
 header {
@@ -84,6 +38,7 @@ footer {
   color: white;
   min-width: inherit;
   text-align: center;
+  text-shadow: -1px 0px 2px #4e4e4e;
 }
 
 footer a {
@@ -91,11 +46,46 @@ footer a {
   color: white;
 }
 
+a.sub-button {
+  text-decoration: none solid;
+  color: white;
+  flex-shrink: 1;
+  font-size: 0.9em;
+  text-align: center;
+  background: border-box linear-gradient(to bottom, #f19f41, #e78b1f);
+  border-radius: 2px;
+  padding: 10px 2%;
+  min-width: 200px;
+  border-left-style: solid;
+  border-left-color: rgba(204, 121, 28, 0.4);
+  border-left-width: 3px;
+  display: block;
+  transition: border-left-width 0.2s, margin-right 0.2s;
+}
+
+a.sub-button:hover {
+  background: border-box linear-gradient(to bottom, #eeb06a, #e29337);
+  margin-right: -12px;
+  border-left-width: 12px;
+  border-left-style: solid;
+  border-left-color: rgba(204, 121, 28, 0.4);
+  transition: border-left-width 0.2s, margin-right 0.2s, background-color 0.2s;
+}
+
+a.sub-button:active {
+  background: border-box #aa6616;
+  margin-right: 0;
+  border-left-width: 0px;
+  border-left-style: solid;
+  border-left-color: rgba(235, 146, 45, 0.6);
+  transition: border-left-width 0.05s, margin-right 0.05s;
+}
+
 nav#breadcrumb-container {
   display: flex;
   border-left-width: 6px;
   border-left-style: solid;
-  border-left-color: rgba(50, 50, 50, 0.6);
+  border-left-color: transparent;
   border-radius: 1px;
   text-align: center;
   min-width: inherit;
@@ -120,7 +110,7 @@ nav#breadcrumb-container a {
   padding: 6px 10%;
   border-left-style: solid;
   border-left-color: rgba(60, 60, 120, 0.6);
-  border-left-width: 0px;
+  border-left-width: 3px;
   display: block;
   transition: border-left-width 0.2s, margin-right 0.2s;
 }
@@ -140,7 +130,7 @@ nav#breadcrumb-container a:active {
   border-left-width: 0px;
   border-left-style: solid;
   border-left-color: rgba(40, 40, 80, 0.4);
-  transition: border-left-width 0.1s, margin-right 0.1s;
+  transition: border-left-width 0.05s, margin-right 0.05s;
 }
 
 nav#technav-container {
@@ -154,6 +144,7 @@ div.main-header {
   border-left-style: solid;
   border-left-color: rgba(40, 40, 80, 0.4);
   padding: 10px 20px;
+  margin-bottom: 20px;
   border-radius: 2px;
   min-width: inherit;
   transition: border-left-width 0.2s 0.4s;
@@ -169,11 +160,11 @@ header.sub-header {
 
 div.main-container {
   background-color: #d9d8d8;
-  text-align: justify;
+  text-align: left;
   border-left: 6px solid rgba(20, 20, 20, 0.3);
   border-radius: 2px;
   padding: 20px 10% 20px calc(10% + 12px);
-  margin: 20px 0;
+  margin-bottom: 20px;
   min-width: inherit;
   transition: border-left-width 0.2s 0.4s;
 }
@@ -230,4 +221,46 @@ div.line {
 
 .column {
   flex: 50%;
+
+/* If the screen is larger than 1080px, increase the font-size and horizontal margin */
+@media only screen and (min-width: 1080px) {
+  body {
+    margin: 40px 20%;
+  }
+
+  div.main-container {
+    padding: auto 30px;
+  }
+}
+
+/* If the screen is smaller than 600px, decrease the font-size and margin */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 16px;
+    margin: 20px 10px;
+  }
+
+  nav#breadcrumb-container {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    border: none;
+  }
+
+  nav#breadcrumb-container a {
+    width:auto;
+  }
+
+  nav#breadcrumb-container div {
+    width: 100%;
+  }
+
+  div.image-container {
+    display: none;
+  }
+
+  div.sub-header {
+    font-size: 0.8em;
+  }
 }
