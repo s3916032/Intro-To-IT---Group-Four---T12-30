@@ -45,11 +45,45 @@ footer a {
   color: white;
 }
 
+a.sub-button {
+  text-decoration: none solid;
+  color: white;
+  flex-shrink: 1;
+  font-size: 0.9em;
+  white-space: pre;
+  background: border-box linear-gradient(to bottom, #f19f41, #e78b1f);
+  border-radius: 2px;
+  padding: 10px 2%;
+  border-left-style: solid;
+  border-left-color: rgba(204, 121, 28, 0.4);
+  border-left-width: 3px;
+  display: block;
+  transition: border-left-width 0.2s, margin-right 0.2s;
+}
+
+a.sub-button:hover {
+  background: border-box linear-gradient(to bottom, #eeb06a, #e29337);
+  margin-right: -12px;
+  border-left-width: 12px;
+  border-left-style: solid;
+  border-left-color: rgba(204, 121, 28, 0.4);
+  transition: border-left-width 0.2s, margin-right 0.2s, background-color 0.2s;
+}
+
+a.sub-button:active {
+  background: border-box #aa6616;
+  margin-right: 0;
+  border-left-width: 0px;
+  border-left-style: solid;
+  border-left-color: rgba(235, 146, 45, 0.6);
+  transition: border-left-width 0.05s, margin-right 0.05s;
+}
+
 nav#breadcrumb-container {
   display: flex;
   border-left-width: 6px;
   border-left-style: solid;
-  border-left-color: rgba(50, 50, 50, 0.6);
+  border-left-color: transparent;
   border-radius: 1px;
   text-align: center;
   min-width: inherit;
@@ -74,7 +108,7 @@ nav#breadcrumb-container a {
   padding: 6px 10%;
   border-left-style: solid;
   border-left-color: rgba(60, 60, 120, 0.6);
-  border-left-width: 0px;
+  border-left-width: 3px;
   display: block;
   transition: border-left-width 0.2s, margin-right 0.2s;
 }
@@ -104,6 +138,7 @@ div.main-header {
   border-left-style: solid;
   border-left-color: rgba(40, 40, 80, 0.4);
   padding: 10px 20px;
+  margin-bottom: 20px;
   border-radius: 2px;
   min-width: inherit;
   transition: border-left-width 0.2s 0.4s;
@@ -123,7 +158,7 @@ div.main-container {
   border-left: 6px solid rgba(20, 20, 20, 0.3);
   border-radius: 2px;
   padding: 20px 10% 20px calc(10% + 12px);
-  margin: 20px 0;
+  margin-bottom: 20px;
   min-width: inherit;
   transition: border-left-width 0.2s 0.4s;
 }
@@ -188,10 +223,15 @@ div.line {
     grid-gap: 5px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    border: none;
   }
 
   nav#breadcrumb-container a {
     width:auto;
+  }
+
+  nav#breadcrumb-container div {
+    width: 100%;
   }
 
   div.image-container {
