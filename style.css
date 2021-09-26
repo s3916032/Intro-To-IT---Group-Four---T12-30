@@ -10,6 +10,7 @@ body {
   background-image: linear-gradient(to bottom, #cdcdcd, #e3e3e3 200px 90%, #6c6c6c);
   margin: 10px 10% 40px 10%;
   min-width: 200px;
+  min-height: 100vh;
 }
 
 /* If the screen is larger than 960px, increase the font-size and horizontal margin */
@@ -49,6 +50,11 @@ body {
 
   div.sub-header {
     font-size: 0.8em;
+  }
+
+  div.sub-container img {
+    float: none;
+    margin-bottom: 10px;
   }
 }
 
@@ -137,6 +143,10 @@ nav#breadcrumb-container a:active {
   transition: border-left-width 0.1s, margin-right 0.1s;
 }
 
+nav#technav-container {
+  display: grid;
+}
+
 div.main-header {
   color: white;
   background: border-box linear-gradient(to bottom, #65a9f7, #4a87e2);
@@ -174,6 +184,12 @@ div.sub-container {
   color: #393939;
   margin: 10px;
   margin-left: -6px;
+}
+
+div.sub-container img {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 div.image-container {
