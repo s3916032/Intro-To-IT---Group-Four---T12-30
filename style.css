@@ -9,7 +9,7 @@ body {
   color: #393939;
   background-image: linear-gradient(to bottom, #cdcdcd, #e3e3e3 200px 90%, #6c6c6c);
   margin: 10px 10% 40px 10%;
-  min-width: screen;
+  min-width: 100px;
 }
 
 header {
@@ -55,6 +55,7 @@ a.sub-button {
   background: border-box linear-gradient(to bottom, #f19f41, #e78b1f);
   border-radius: 2px;
   padding: 10px 2%;
+  min-width: 200px;
   border-left-style: solid;
   border-left-color: rgba(204, 121, 28, 0.4);
   border-left-width: 3px;
@@ -155,7 +156,7 @@ header.sub-header {
 
 div.main-container {
   background-color: #d9d8d8;
-  text-align: justify;
+  text-align: left;
   border-left: 6px solid rgba(20, 20, 20, 0.3);
   border-radius: 2px;
   padding: 20px 10% 20px calc(10% + 12px);
