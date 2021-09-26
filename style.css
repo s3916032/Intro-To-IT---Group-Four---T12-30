@@ -12,46 +12,6 @@ body {
   min-width: 200px;
 }
 
-/* If the screen is larger than 960px, increase the font-size and horizontal margin */
-@media only screen and (min-width: 960px) {
-  body {
-    margin: 40px 20%;
-  }
-
-  div.main-container {
-    padding: auto 30px;
-  }
-}
-
-/* If the screen is smaller than 420px, decrease the font-size and margin */
-@media only screen and (max-width: 400px) {
-  body {
-    font-size: 16px;
-    margin: 20px 10px;
-  }
-
-  nav#breadcrumb-container {
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-  }
-
-  nav#breadcrumb-container a {
-    width:auto;
-    flex-shrink: 0;
-    word-wrap: break-word;
-  }
-
-  div.image-container {
-    display: none;
-  }
-
-  div.sub-header {
-    font-size: 0.8em;
-  }
-}
-
 header {
   color: white;
   width: inherit;
@@ -134,7 +94,7 @@ nav#breadcrumb-container a:active {
   border-left-width: 0px;
   border-left-style: solid;
   border-left-color: rgba(40, 40, 80, 0.4);
-  transition: border-left-width 0.1s, margin-right 0.1s;
+  transition: border-left-width 0.05s, margin-right 0.05s;
 }
 
 div.main-header {
@@ -203,4 +163,42 @@ div.line {
   height: 4px;
   padding: 0;
   transition: border-left-width 0.6s;
+}
+
+/* If the screen is larger than 960px, increase the font-size and horizontal margin */
+@media only screen and (min-width: 960px) {
+  body {
+    margin: 40px 20%;
+  }
+
+  div.main-container {
+    padding: auto 30px;
+  }
+}
+
+/* If the screen is smaller than 420px, decrease the font-size and margin */
+@media only screen and (max-width: 400px) {
+  body {
+    font-size: 16px;
+    margin: 20px 10px;
+  }
+
+  nav#breadcrumb-container {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  nav#breadcrumb-container a {
+    width:auto;
+  }
+
+  div.image-container {
+    display: none;
+  }
+
+  div.sub-header {
+    font-size: 0.8em;
+  }
 }
