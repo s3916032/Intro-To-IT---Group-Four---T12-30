@@ -9,7 +9,7 @@ body {
   color: #393939;
   background-image: linear-gradient(to bottom, #cdcdcd, #e3e3e3 200px 90%, #6c6c6c);
   margin: 10px 10% 40px 10%;
-  min-width: 200px;
+  min-width: screen;
 }
 
 header {
@@ -38,6 +38,7 @@ footer {
   color: white;
   min-width: inherit;
   text-align: center;
+  text-shadow: -1px 0px 2px #4e4e4e;
 }
 
 footer a {
@@ -50,7 +51,7 @@ a.sub-button {
   color: white;
   flex-shrink: 1;
   font-size: 0.9em;
-  white-space: pre;
+  text-align: center;
   background: border-box linear-gradient(to bottom, #f19f41, #e78b1f);
   border-radius: 2px;
   padding: 10px 2%;
@@ -200,8 +201,8 @@ div.line {
   transition: border-left-width 0.6s;
 }
 
-/* If the screen is larger than 960px, increase the font-size and horizontal margin */
-@media only screen and (min-width: 960px) {
+/* If the screen is larger than 1080px, increase the font-size and horizontal margin */
+@media only screen and (min-width: 1080px) {
   body {
     margin: 40px 20%;
   }
@@ -211,8 +212,8 @@ div.line {
   }
 }
 
-/* If the screen is smaller than 420px, decrease the font-size and margin */
-@media only screen and (max-width: 400px) {
+/* If the screen is smaller than 600px, decrease the font-size and margin */
+@media only screen and (max-width: 600px) {
   body {
     font-size: 16px;
     margin: 20px 10px;
