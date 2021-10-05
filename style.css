@@ -133,6 +133,10 @@ nav#breadcrumb-container a:active {
   transition: border-left-width 0.05s, margin-right 0.05s;
 }
 
+nav#technav-container {
+  display: grid;
+}
+
 div.main-header {
   color: white;
   background: border-box linear-gradient(to bottom, #65a9f7, #4a87e2);
@@ -166,11 +170,21 @@ div.main-container {
 }
 
 div.sub-container {
-  word-wrap: break-word;
   font-size: 0.8em;
   color: #393939;
   margin: 10px;
   margin-left: -6px;
+}
+
+div.sub-container img {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 50%;
+  height: auto;
+  max-height: 350px;
+  max-width: 250px;
+  min-height: 150px;
+  min-width: 150px;
 }
 
 div.image-container {
@@ -200,6 +214,17 @@ div.line {
   height: 4px;
   padding: 0;
   transition: border-left-width 0.6s;
+}
+
+.tab { margin-left: 40px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
 }
 
 /* If the screen is larger than 1080px, increase the font-size and horizontal margin */
@@ -242,5 +267,13 @@ div.line {
 
   div.sub-header {
     font-size: 0.8em;
+  }
+
+  div.sub-container img {
+    width: 50%;
+    height: auto;
+    margin: auto;
+    padding-right:15px;
+    padding-bottom:5px
   }
 }
