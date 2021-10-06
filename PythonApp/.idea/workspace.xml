@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="594e3f3a-dd8c-47ca-9109-1fe29bbe82d6" name="Default Changelist" comment="Properly imported package">
-      <change afterPath="$PROJECT_DIR$/main/test-logo.PNG" afterDir="false" />
+    <list default="true" id="594e3f3a-dd8c-47ca-9109-1fe29bbe82d6" name="Default Changelist" comment="Some starting functions - need to implement PIL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/appdraft.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/appdraft.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/test-logo.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/main/test-logo.PNG" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1633405884952</updated>
       <workItem from="1633405886254" duration="592000" />
+      <workItem from="1633481110026" duration="7506000" />
     </task>
     <task id="LOCAL-00001" summary="Properly imported package">
       <created>1633409442873</created>
@@ -128,12 +129,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Properly imported package" />
     <option name="LAST_COMMIT_MESSAGE" value="Properly imported package" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PythonApp$appdraft.coverage" NAME="appdraft Coverage Results" MODIFIED="1633429627517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/PythonApp$appdraft.coverage" NAME="appdraft Coverage Results" MODIFIED="1633489919572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>
 </project>
