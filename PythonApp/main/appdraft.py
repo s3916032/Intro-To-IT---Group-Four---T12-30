@@ -49,7 +49,7 @@ def switch_window(current, new):
         return new
 
 
-def set_splash(window, display=False):
+def set_splash_window(window, display=False):
     """
     Sets up a window as a splash window
 
@@ -65,7 +65,7 @@ def set_splash(window, display=False):
         window.hide()
 
 
-def set_login(window, display=False):
+def set_login_window(window, display=False):
     """
     Sets up a window as a login window
 
@@ -73,16 +73,26 @@ def set_login(window, display=False):
     :param bool display: Should the window display once the function is complete?
     """
 
-    # two fields - username and password
+    # two fields - username and password - each commanded as login
     # two texts - username and password (beside fields)
     # two buttons - login (after fields) and register
+    # commands:
+    #   login - once pressed, check credentials (can be instant for now) and switch screen to PIN
+    #   register - once pressed, save credentials (does not need to be secure for now as it's a draft)
 
-    text_size = 10
+    text_size = 10  # size to display field texts
+    margin = 100  # size of border margins
 
-    field_box = Box(window, layout="grid", grid=[int(window.width/2), int(window.height/2)], border=True)
-    login_text = Text(field_box, "Login:", grid=[0, 10], size=text_size)
-    login_field = TextBox(field_box, "", "fill", grid=[50, 10])
-    register_field = TextBox(field_box, "", "fill", grid=[50, 20], hide_text=True)
+    # set up margins
+    top_margin = Box(window, width=window.width, height=margin, align="top")
+
+    # set up fields
+    outer_box = Box(window, layout="grid", width=window.width-margin*2, height=window.height-margin*2,
+                    border=True)
+    Text(outer_box, "Username:", grid=[0, 1], size=text_size)  # login text
+    Text(outer_box, "Password:", grid=[0, 2], size=text_size)  # password text
+    login_field = TextBox(outer_box, "", "fill", grid=[1, 1])
+    password_field = TextBox(outer_box, "", "fill", grid=[1, 2], hide_text=True)
 
     if display:
         window.show()
@@ -95,19 +105,19 @@ def build_app():
     Creates an app and some windows for splash, account, pin and main pages
     """
 
-    splash_time = 1000  # time to wait after splash window (ms)
+    splash_time = 1000  # time to wait after splash window appears (ms)
 
     app_main = App("Safe Box", 500, 800, layout="grid", bg=COLORS['bg'], visible=False)  # main app container
     window_splash = Window(app_main, title="Splash", bg=COLORS['bg'], width=app_main.width, height=app_main.height,
                            visible=True)  # splash screen
     window_login = Window(app_main, title="Login", bg=COLORS['bg'], width=app_main.width, height=app_main.height,
-                          layout="grid", visible=False)  # login screen
+                          visible=False)  # login screen
     window_register = Window(app_main, title="Register", bg=COLORS['bg'], width=app_main.width, height=app_main.height,
                              visible=False)  # register screen
 
     # setup the windows
-    set_splash(window_splash, True)
-    set_login(window_login)
+    set_splash_window(window_splash, True)
+    set_login_window(window_login)
 
     app_main.after(splash_time, switch_window, (window_splash, window_login))  # show the splash for some time
     app_main.display()  # finally, display the app
