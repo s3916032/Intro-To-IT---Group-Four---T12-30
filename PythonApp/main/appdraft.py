@@ -8,7 +8,6 @@
 # The following program is not endorsed by Simon Bird (s3916032)
 #
 # TODO:
-#   Opening page
 #   Account pages: Register and Login
 #       Store user data with register; Only login when matched
 #       Automatically login until 30 days or manually logged out

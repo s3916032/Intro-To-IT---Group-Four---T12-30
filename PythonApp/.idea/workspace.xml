@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="594e3f3a-dd8c-47ca-9109-1fe29bbe82d6" name="Default Changelist" comment="Some starting functions - need to implement PIL">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="594e3f3a-dd8c-47ca-9109-1fe29bbe82d6" name="Default Changelist" comment="Margins and elements, splash screen">
       <change beforePath="$PROJECT_DIR$/main/appdraft.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/appdraft.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/test-logo.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/main/test-logo.PNG" afterDir="false" />
     </list>
@@ -104,7 +103,11 @@
       <option name="presentableId" value="Default" />
       <updated>1633405884952</updated>
       <workItem from="1633405886254" duration="592000" />
+<<<<<<< Updated upstream
       <workItem from="1633481110026" duration="7506000" />
+=======
+      <workItem from="1633481110026" duration="13463000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="Properly imported package">
       <created>1633409442873</created>
@@ -113,7 +116,25 @@
       <option name="project" value="LOCAL" />
       <updated>1633409442873</updated>
     </task>
+<<<<<<< Updated upstream
     <option name="localTasksCounter" value="2" />
+=======
+    <task id="LOCAL-00002" summary="Some starting functions - need to implement PIL">
+      <created>1633489992603</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633489992603</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Margins and elements, splash screen">
+      <created>1633497138740</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633497138740</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+>>>>>>> Stashed changes
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,9 +154,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Properly imported package" />
+<<<<<<< Updated upstream
     <option name="LAST_COMMIT_MESSAGE" value="Properly imported package" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PythonApp$appdraft.coverage" NAME="appdraft Coverage Results" MODIFIED="1633489919572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+=======
+    <MESSAGE value="Some starting functions - need to implement PIL" />
+    <MESSAGE value="Margins and elements, splash screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Margins and elements, splash screen" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PythonApp$appdraft.coverage" NAME="appdraft Coverage Results" MODIFIED="1633497103423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+>>>>>>> Stashed changes
   </component>
 </project>
