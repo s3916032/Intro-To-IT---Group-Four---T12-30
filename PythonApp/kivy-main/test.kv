@@ -8,25 +8,47 @@
         id: login_screen
         name: 'login'
         manager: screen_manager
+    RegisterScreen:
+        id: register_screen
+        name: 'register'
+        manager: screen_manager
+    PinScreen:
+        id: pin_screen
+        name: 'pin'
+        manager: screen_manager
 
 <SplashScreen>:
     BoxLayout:
-        orientation: 'vertical'
         size: root.size
         Image:
             source: "test-logo.PNG"
-        Label:
-            text: 'Hello'
 
-<LoginScreen>:
+<LoginScreen, RegisterScreen>:
     GridLayout:
         cols: 2
+        rows: 4
+        Label:
+            id: login_error
+            text: 'Invalid username or password. Please try again.'
+            text_size: (0, 0)
         Label:
             text: 'Username'
         TextInput:
+            id: username_field
             multiline: False
+            on_text_validate: root.check_information()
         Label:
             text: 'Password'
         TextInput:
+            id: password_field
             multiline: False
             password: True
+            on_text_validate: root.check_information()
+        Button:
+            text: root.button_text
+            on_release: root.check_information()
+
+<PinScreen>:
+    BoxLayout:
+        Label:
+            text: 'PIN Screen'
