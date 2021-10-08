@@ -44,7 +44,7 @@ def switch_window(current, new):
         raise TypeError("Invalid Window.")  # raise a TypeError if a parameter Window is None
     else:
         current.hide()  # hide the current window,
-        new.show(wait=True)  # show the new window and set it to the main window
+        new.show(wait=True)  # show the new window and set it to the guizero-main window
         return new
 
 
@@ -101,12 +101,12 @@ def set_login_window(window, display=False):
 
 def build_app():
     """
-    Creates an app and some windows for splash, account, pin and main pages
+    Creates an app and some windows for splash, account, pin and guizero-main pages
     """
 
     splash_time = 1000  # time to wait after splash window appears (ms)
 
-    app_main = App("Safe Box", 500, 800, layout="grid", bg=COLORS['bg'], visible=False)  # main app container
+    app_main = App("Safe Box", 500, 800, layout="grid", bg=COLORS['bg'], visible=False)  # guizero-main app container
     window_splash = Window(app_main, title="Splash", bg=COLORS['bg'], width=app_main.width, height=app_main.height,
                            visible=True)  # splash screen
     window_login = Window(app_main, title="Login", bg=COLORS['bg'], width=app_main.width, height=app_main.height,

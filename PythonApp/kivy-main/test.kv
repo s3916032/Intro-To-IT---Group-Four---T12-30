@@ -1,0 +1,32 @@
+<WindowManager>:
+    id: screen_manager
+    SplashScreen:
+        id: splash_screen
+        name: 'splash'
+        manager: screen_manager
+    LoginScreen:
+        id: login_screen
+        name: 'login'
+        manager: screen_manager
+
+<SplashScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.size
+        Image:
+            source: "test-logo.PNG"
+        Label:
+            text: 'Hello'
+
+<LoginScreen>:
+    GridLayout:
+        cols: 2
+        Label:
+            text: 'Username'
+        TextInput:
+            multiline: False
+        Label:
+            text: 'Password'
+        TextInput:
+            multiline: False
+            password: True
