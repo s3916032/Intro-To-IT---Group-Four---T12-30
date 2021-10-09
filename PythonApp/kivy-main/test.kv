@@ -16,6 +16,10 @@
         id: pin_screen
         name: 'pin'
         manager: screen_manager
+    MainScreen:
+        id: main_screen
+        name: 'main'
+        manager: screen_manager
 
 <SplashScreen>:
     BoxLayout:
@@ -29,8 +33,12 @@
         rows: 4
         Label:
             id: login_error
-            text: 'Invalid username or password. Please try again.'
-            text_size: (0, 0)
+            text: 'Invalid username or password.'
+            text_size: self.size
+            height: '-100dp'
+            size_hint_y: None
+            halign: 'right'
+            valign: 'middle'
         Label:
             text: 'Username'
         TextInput:
@@ -51,4 +59,15 @@
 <PinScreen>:
     BoxLayout:
         Label:
-            text: 'PIN Screen'
+            id: pin_text
+            text: 'Enter PIN'
+        TextInput:
+            id: pin_field
+            multiline: False
+            input_type: 'number'
+            on_text_validate: root.check_pin()
+
+<MainScreen>:
+    BoxLayout:
+        Label:
+            text: 'You did it! This is the MAIN screen.'
