@@ -295,6 +295,15 @@ def check_integrity():
     # check if the user info file exists and create it if it doesn't
     if os.path.isfile("user_info.txt"):
         print("User info file exists.")
+        file = open("user_info.txt", "r")
+        # check the number of lines in the user_info file and if it's more than 2, reset the file
+        count = 0
+        for _ in file.readlines():
+            count += 1
+        if count >= 3:
+            file = open("user_info.txt", "w")  # truncate the file
+            print("File cleared due to incorrect line amount.")
+        file.close()
     else:
         print("Creating user info file...")
         file = open("user_info.txt", "x")
