@@ -17,14 +17,15 @@
 
 # TODO:
 #   Implement pages:
-#       Login - layout, button to switch to register, check if user validated on page load
+#       Login - layout, button to switch to register, switch to pin if logged in
 #       Register - layout, button to switch to login
-#       PIN - layout, check if user has pin on load, error label
+#       PIN - layout, error label
 #       Main page
 
 # Possible additions:
-#   Account page (log out)
+#   Account page (log out, change PIN, change account)
 #   Email address (not very necessary for a basic prototype)
+#   Store multiple accounts
 
 import kivy
 from kivy.app import App
@@ -83,7 +84,9 @@ class LoginScreen(Screen):
             file = open(self.file, "r")  # open the file in read mode
 
             # if the user's current login info matches the current file line, validate and go to PIN
+            count = 0
             for line in file.readlines():
+                count += 1
                 # if the user is in the line...
                 if str(self.current_user) in line:
                     print("User validated. Name: " + self.current_user['name'] + " Pass: " + self.current_user['pass'])
@@ -94,30 +97,19 @@ class LoginScreen(Screen):
                     # otherwise, invalidate and display an error
                     print("User does not exist.")
                     self.ids.login_error.size_hint_y = 1
-        else:
-            # if the user info file does not exist, create it
-            print(str(self.file) + " does not exist. Writing file...")
-            file = open(self.file, "x")  # create and open the file...
-            file.close()  # ...then close the file
-            print("Done! Switching screens to register...")
-            self.switch_register()  # switch the current screen to register
 
-    def switch_register(self, *args):
+            # if there is no line in the file, register a user
+            print("Read " + str(count) + " lines.")
+            if count <= 0:
+                print("No user exists in " + str(self.file))
+                self.switch_register()
+
+    def switch_register(self):
         # switches the screen manager's current window to Register
         self.parent.current = 'register'
 
-    def switch_pin(self, *args):
+    def switch_pin(self):
         # switches the screen manager's current window to PIN
-
-        # check if there is a pin in the user file
-        file = open("user_info.txt", "r")  # open the user info file
-        count = 0
-        for _ in file.readlines():
-            # if the user info file does not contain a pin, set it
-            count += 1
-            if count == 2:
-                print("PIN found. Does not need to be set.")
-                break
         self.parent.current = 'pin'
 
 
@@ -172,11 +164,38 @@ class PinScreen(Screen):
     def __init__(self, **kwargs):
         super(PinScreen, self).__init__(**kwargs)
         self.current_pin = {'pin': ''}  # user's entered pin as a dict
+        self.pin_exists = False  # does a PIN exist in the user info file?
+        self.label_text = 'Enter PIN'
+        self.check_pin_exists()  # check if the PIN does indeed exist
 
-        # go to set_pin if there is none
-        if not pin_exists:
-            self.set_pin(file)
+    def check_pin_exists(self):
+        # checks if a pin exists and then returns True or False
+
+        file = open("user_info.txt", "r")  # open the user info file
+        count = 0
+        self.pin_exists = False
+        for line in file.readlines():
+            # if the user info file does not contain a pin, set it
+            count += 1
+            if count == 2 and 'pin' in line:
+                print("PIN found. Does not need to be set.")
+                self.pin_exists = True
+
+        if not self.pin_exists:
+            print("PIN not found. Needs to be set.")
+            self.label_text = 'Set PIN'
+
         file.close()
+
+    def on_pin_entered(self):
+        # the 'enter pin' button should call this method so the pin screen can choose to check or set
+
+        if self.pin_exists:
+            print("Running PIN check method")
+            self.check_pin()
+        else:
+            print("Running PIN set method")
+            self.set_pin()
 
     def check_pin(self):
         # checks the pin against the one in the user file and then goes to main screen
@@ -198,25 +217,39 @@ class PinScreen(Screen):
                 count += 1
                 if count == 2:
                     print("PIN found in user_info.txt at line " + str(count))
-                    print(line)
-                    print("input: " + str(self.current_pin))
                     # check if the PIN is valid
                     if str(self.current_pin) == line:
                         count = 0
                         file.close()  # close the file
-                        print("PIN validated. Switching to main...")
+                        print("PIN correct. Switching to main...")
                         self.switch_main()  # go to the main screen
+                        self.current_pin['pin'] = ''  # reset the entered pin
                         break  # break the loop prematurely
                     else:
-                        print("PIN was invalid!")
+                        print("PIN incorrect.")
             file.close()
 
-    def set_pin(self, file):
-        # reads a file and appends text to it
+    def set_pin(self):
+        # sets the current pin of the user and adds it to the user_info file
+
         self.current_pin['pin'] = self.ids.pin_field.text  # get the PIN from the input field
-        file.writelines("\n" + str(self.current_pin))  # append the line to the end
-        print("PIN Set to " + self.current_pin['pin'])
-        file.close()  # finally, close the file
+        if len(self.current_pin['pin']) != 4 or not self.current_pin['pin'].isdigit():
+            print("Invalid PIN!")
+        else:
+            # reads a file and appends text to it
+            self.current_pin['pin'] = self.ids.pin_field.text  # get the PIN from the input field
+            file = open("user_info.txt", "a")  # open the file in append mode
+            file.writelines("\n" + str(self.current_pin))  # append the line to the end
+            print("PIN Set to " + self.current_pin['pin'])
+            file.close()
+            self.current_pin['pin'] = ''  # reset current pin
+            # check if the pin now exists
+            self.check_pin_exists()
+            if self.pin_exists:
+                self.on_pin_entered()  # finally, run the check or set method again
+            else:
+                print("An error has occurred. The application will now exit.")
+                test_app.stop()  # exit the application
 
     def switch_main(self, *args):
         # switches the screen manager's current window to main
@@ -254,8 +287,20 @@ class TestApp(App):
 
     def build(self):
         Window.size = (250, 500)  # set window size to 250 x 500
+        check_integrity()
         return WindowManager()
 
 
+def check_integrity():
+    # check if the user info file exists and create it if it doesn't
+    if os.path.isfile("user_info.txt"):
+        print("User info file exists.")
+    else:
+        print("Creating user info file...")
+        file = open("user_info.txt", "x")
+        file.close()
+
+
 if __name__ == "__main__":
-    TestApp().run()  # build and then run the test app
+    test_app = TestApp()  # build and then run the test app
+    test_app.run()
