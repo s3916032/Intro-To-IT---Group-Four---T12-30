@@ -57,15 +57,16 @@
             on_release: root.check_information()
 
 <PinScreen>:
+    on_enter: root.check_pin_exists()
     BoxLayout:
         Label:
             id: pin_text
-            text: 'Enter PIN'
+            text: root.label_text
         TextInput:
             id: pin_field
             multiline: False
             input_type: 'number'
-            on_text_validate: root.check_pin()
+            on_text_validate: root.on_pin_entered()
 
 <MainScreen>:
     BoxLayout:
