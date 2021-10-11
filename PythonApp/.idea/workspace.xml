@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="594e3f3a-dd8c-47ca-9109-1fe29bbe82d6" name="Default Changelist" comment="PIN functionality complete. User can set and check PIN after login.">
+    <list default="true" id="594e3f3a-dd8c-47ca-9109-1fe29bbe82d6" name="Default Changelist" comment="Quick fix - clear file if there are more than 3 lines">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kivy-main/kivy-test.py" beforeDir="false" afterPath="$PROJECT_DIR$/kivy-main/kivy-test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kivy-main/test.kv" beforeDir="false" afterPath="$PROJECT_DIR$/kivy-main/test.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kivy-main/user_info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/kivy-main/user_info.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,9 +169,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="verytemp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonApp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kivy-main" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kivy-main/verytemp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.kivy-test" />
+        <item itemvalue="Python.verytemp" />
         <item itemvalue="Python.appdraft (1)" />
         <item itemvalue="Python.kivydraft" />
         <item itemvalue="Python.appdraft" />
@@ -194,7 +218,9 @@
       <workItem from="1633693942052" duration="48000" />
       <workItem from="1633744598368" duration="11455000" />
       <workItem from="1633756157758" duration="115000" />
-      <workItem from="1633834891398" duration="9013000" />
+      <workItem from="1633834891398" duration="9244000" />
+      <workItem from="1633847470421" duration="516000" />
+      <workItem from="1633916072544" duration="16570000" />
     </task>
     <task id="LOCAL-00001" summary="Properly imported package">
       <created>1633409442873</created>
@@ -231,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633846246194</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Quick fix - clear file if there are more than 3 lines">
+      <created>1633846883517</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633846883517</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,12 +289,14 @@
     <MESSAGE value="Basic Kivy complete - two simple screens, splash and login" />
     <MESSAGE value="Deleted guizero" />
     <MESSAGE value="PIN functionality complete. User can set and check PIN after login." />
-    <option name="LAST_COMMIT_MESSAGE" value="PIN functionality complete. User can set and check PIN after login." />
+    <MESSAGE value="Quick fix - clear file if there are more than 3 lines" />
+    <option name="LAST_COMMIT_MESSAGE" value="Quick fix - clear file if there are more than 3 lines" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PythonApp$appdraft__1_.coverage" NAME="appdraft (1) Coverage Results" MODIFIED="1633682010400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/guizero-main" />
     <SUITE FILE_PATH="coverage/PythonApp$kivydraft.coverage" NAME="kivydraft Coverage Results" MODIFIED="1633657145433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kivy-main" />
-    <SUITE FILE_PATH="coverage/PythonApp$kivy_test.coverage" NAME="kivy-test Coverage Results" MODIFIED="1633846733135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kivy-main" />
+    <SUITE FILE_PATH="coverage/PythonApp$verytemp.coverage" NAME="verytemp Coverage Results" MODIFIED="1633918060847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kivy-main" />
+    <SUITE FILE_PATH="coverage/PythonApp$kivy_test.coverage" NAME="kivy-test Coverage Results" MODIFIED="1633926739651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kivy-main" />
     <SUITE FILE_PATH="coverage/PythonApp$appdraft.coverage" NAME="appdraft Coverage Results" MODIFIED="1633574911123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>
 </project>

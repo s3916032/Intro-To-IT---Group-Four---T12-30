@@ -72,3 +72,6 @@
     BoxLayout:
         Label:
             text: 'You did it! This is the MAIN screen.'
+        Button:
+            text: 'Generate locker A token'
+            on_release: root.lockers[0].hire()

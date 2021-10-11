@@ -6,10 +6,14 @@
 #   Liam Folie - interface design
 
 # ----------------------------------------------------------------------------------------------------------
-# NOTE:
+#   [NOTE]:
+#
 #   Do NOT input sensitive information (such as an actual password) into the user_info.txt file or fields!
-#   The stored information is not secured at all and is written in plain text.
-#   If you are testing the register/login, random common names and simple-worded passwords are ideal
+#
+#   The stored information is not secured at all and is written in plain text. Ideally, if we were to
+#   implement an online database for the users, there would not be a storage file at all.
+#
+#   If you are testing the register/login, random common names and simple-worded passwords are ideal.
 #
 #   Furthermore, the app can only store one user on file for security purposes - I definitely do not want
 #   a lot of files containing potentially personal information!
@@ -20,12 +24,13 @@
 #       Login - layout, button to switch to register, switch to pin if logged in
 #       Register - layout, button to switch to login
 #       PIN - layout, error label
-#       Main page
+#       Main page - layout, generate token, open/lock lockers (locker is_hired, is_locked)
 
 # Possible additions:
 #   Account page (log out, change PIN, change account)
 #   Email address (not very necessary for a basic prototype)
 #   Store multiple accounts
+
 
 import kivy
 from kivy.app import App
@@ -42,9 +47,185 @@ from kivy.uix.image import Image
 from kivy.uix.widget import Widget
 from kivy.core.window import Window
 import os
+from random import random
 
 kivy.require("2.0.0")  # developer requires kivy 2.0.0
 ILLEGAL_CHARS = "/\\][}{)(`~ "
+
+
+def generate_token():
+    # generates a random four-digit string and returns it
+    token = "{:04d}".format(int(random() * 10000))  # format to four digits
+    return token  # call setter
+
+
+def token_is_equal(value_one, value_two):
+    # checks if a token is equal to another token
+    if value_one == value_two:
+        return True
+    else:
+        return False
+
+
+class User:
+    """
+    A user holds a username, password, and one hired locker and its token.
+
+    Otherwise, a user does not boast any special qualities
+    """
+
+    def __init__(self, username, password):
+        """
+        :param str username:
+            (required) User's username
+        :param str password:
+            (required) User's password
+        """
+        self.username = username
+        self.password = password
+        self.current_locker = None  # locker the user is currently hiring
+        self.current_token = ''  # user's token - it should match the locker they are currently hiring
+        self.is_hiring = False  # is the user currently hiring a locker?
+
+    def __repr__(self):
+        # represent overload
+        represent = 'User ' + self.username + ' is hiring ' + ('no locker ' if self.is_hiring is False else
+                                                               'Locker ' + self.current_locker.name)
+
+    @property
+    def username(self):
+        return self.__username
+
+    @username.setter
+    def username(self, value):
+        self.__username = value
+
+    @property
+    def password(self):
+        return self.__password
+
+    @password.setter
+    def password(self, value):
+        if 3 < len(value) <= 20:
+            self.__password = value
+        else:
+            print("ERROR: PASSWORD INCORRECT LENGTH.\nPassword must be between 4 and 20 characters.")
+
+    @property
+    def current_locker(self):
+        return self.__current_locker
+
+    @current_locker.setter
+    def current_locker(self, value):
+        self.__current_locker = value
+
+    @property
+    def current_token(self):
+        return self.__current_token
+
+    @current_token.setter
+    def current_token(self, value):
+        self.__current_token = value
+
+    @property
+    def is_hiring(self):
+        return self.__is_hiring
+
+    @is_hiring.setter
+    def is_hiring(self, value):
+        self.__is_hiring = value
+
+
+class Locker:
+    """
+    A locker holds a locked/unlocked state and can only be opened using a generated token.
+
+    Token generation is rudimentary and insecure. It is merely a random four-digit string and a single letter
+    to signify the owning locker.
+
+    When a user hires a locker, the token is generated until they unlock the locker again.
+
+    The token is not stored on file - that would be too unsafe!
+    """
+
+    def __init__(self, name, is_locked=True):
+        """
+        :param bool is_locked:
+            (default True) Is the locker currently locked?
+        :param str name:
+            (required) Locker's name representation - case sensitive
+        """
+        self.is_locked = is_locked
+        self.is_hired = False  # is the locker currently hired?
+        self.name = name  # the name representation of the locker (e.g A) - this is case sensitive
+        self.current_token = 'NONE'  # current token of the locker - defaults to 0000
+
+    def __repr__(self):
+        # represent overload
+        represent = ('Locker ' + self.name + ' is ' + ('locked ' if self.is_locked else ' unlocked. ') +
+                     'its current token is ' + self.current_token)
+        return represent
+
+    @property
+    def current_token(self):
+        return self.__current_token
+
+    @current_token.setter
+    def current_token(self, value):
+        # tries to set the token of the locker if it is valid (correct type, length and value)
+        try:
+            self.__current_token = str(value + self.name)
+        except ValueError:
+            print("Incorrect token value!")
+        except TypeError:
+            print("Incorrect token type! Token is String.")
+        else:
+            if len(self.current_token) != 5:
+                print("Token is invalid. Token length is: " + str(len(self.current_token)))
+                self.__current_token = 'NONE' + self.name
+        finally:
+            print("Token generated by Locker " + self.name + ": " + self.current_token)
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, value):
+        self.__name = value
+
+    @property
+    def is_locked(self):
+        return self.__is_locked
+
+    @is_locked.setter
+    def is_locked(self, value):
+        self.__is_locked = value
+
+    @property
+    def is_hired(self):
+        return self.__is_hired
+
+    @is_hired.setter
+    def is_hired(self, value):
+        self.__is_hired = value
+
+    def unlock(self):
+        # unlocks the locker
+        self.is_locked = False
+
+    def lock(self):
+        # locks the locker
+        self.is_locked = True
+
+    def hire(self):
+        # hires the locker and and returns a new token which the locker stores
+        if not self.is_hired:
+            token = generate_token()  # generate the new token
+            self.current_token = token  # set the locker's token to the new token
+            return self.current_token  # return the formatted new token
+        else:
+            print("Locker " + self.name + " is already hired by ")
 
 
 class SplashScreen(Screen):
@@ -90,6 +271,7 @@ class LoginScreen(Screen):
                 # if the user is in the line...
                 if str(self.current_user) in line:
                     print("User validated. Name: " + self.current_user['name'] + " Pass: " + self.current_user['pass'])
+                    test_app.current_user = User(self.current_user['name'], self.current_user['pass'])  # set app user
                     self.current_user['name'] = ''  # clear the username...
                     self.current_user['pass'] = ''  # ...and the password
                     self.switch_pin()
@@ -149,7 +331,7 @@ class RegisterScreen(Screen):
             self.current_user['pass'] = ''  # ...and password
             self.switch_login()  # switch the current screen to register
 
-    def switch_login(self, *args):
+    def switch_login(self):
         # switches the screen manager's current window to login
         self.parent.current = 'login'
 
@@ -169,7 +351,7 @@ class PinScreen(Screen):
         self.check_pin_exists()  # check if the PIN does indeed exist
 
     def check_pin_exists(self):
-        # checks if a pin exists and then returns True or False
+        # checks if a pin exists and then sets the pin_exists value
 
         file = open("user_info.txt", "r")  # open the user info file
         count = 0
@@ -219,12 +401,11 @@ class PinScreen(Screen):
                     print("PIN found in user_info.txt at line " + str(count))
                     # check if the PIN is valid
                     if str(self.current_pin) == line:
-                        count = 0
+                        count = 0  # reset the count
                         file.close()  # close the file
                         print("PIN correct. Switching to main...")
                         self.switch_main()  # go to the main screen
                         self.current_pin['pin'] = ''  # reset the entered pin
-                        break  # break the loop prematurely
                     else:
                         print("PIN incorrect.")
             file.close()
@@ -251,16 +432,23 @@ class PinScreen(Screen):
                 print("An error has occurred. The application will now exit.")
                 test_app.stop()  # exit the application
 
-    def switch_main(self, *args):
+    def switch_main(self):
         # switches the screen manager's current window to main
         self.parent.current = 'main'
 
 
 class MainScreen(Screen):
     """
-    Creates the main screen
+    Creates the main screen with three hireable lockers
     """
-    pass
+
+    def __init__(self, **kwargs):
+        super(MainScreen, self).__init__(**kwargs)
+
+    lockers = [Locker('A'), Locker('B'), Locker('C')]  # list of virtual lockers on this screen
+    print("Lockers created:")
+    for locker in lockers:
+        print(repr(locker))
 
 
 class WindowManager(ScreenManager):
@@ -285,9 +473,21 @@ class TestApp(App):
     Creates a new kivy App with the ScreenManager as the root widget
     """
 
+    def __init__(self, **kwargs):
+        super(TestApp, self).__init__(**kwargs)
+        self.current_user = None  # the current user of the app
+
+    @property
+    def current_user(self):
+        return self.__current_user
+
+    @current_user.setter
+    def current_user(self, value):
+        self.__current_user = value
+
     def build(self):
         Window.size = (250, 500)  # set window size to 250 x 500
-        check_integrity()
+        check_integrity()  # check the user file
         return WindowManager()
 
 
