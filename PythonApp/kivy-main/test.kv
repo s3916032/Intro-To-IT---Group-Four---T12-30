@@ -69,6 +69,33 @@
             on_text_validate: root.on_pin_entered()
 
 <MainScreen>:
-    BoxLayout:
+    GridLayout:
+        cols: 3
+        rows: 3
         Label:
-            text: 'You did it! This is the MAIN screen.'
+            id: locker_a
+            text: 'Locker A (locked)'
+        Label:
+            id: locker_b
+            text: 'Locker B (locked)'
+        Label:
+            id: locker_c
+            text: 'Locker C (locked)'
+        Button:
+            id: button_hire_a
+            text: 'Hire Locker A'
+            on_release: root.hire_locker(self)
+        Button:
+            id: button_hire_b
+            text: 'Hire Locker B'
+            on_release: root.hire_locker(self)
+        Button:
+            id: button_hire_c
+            text: 'Hire Locker C'
+            on_release: root.hire_locker(self)
+        Label:
+            id: locker_label
+        Button:
+            id: lock_button
+            text: 'Unlock'
+            on_release: root.activate_locker()
