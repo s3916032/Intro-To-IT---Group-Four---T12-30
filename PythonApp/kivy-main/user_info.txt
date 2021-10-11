@@ -1,2 +1,2 @@
-{'name': 'Abc', 'pass': 'CbA'}
-{'pin': '9090'}
+{'name': 'lols', 'pass': 'lols'}
+{'pin': '0000'}
