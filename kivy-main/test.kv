@@ -1,0 +1,101 @@
+<WindowManager>:
+    id: screen_manager
+    SplashScreen:
+        id: splash_screen
+        name: 'splash'
+        manager: screen_manager
+    LoginScreen:
+        id: login_screen
+        name: 'login'
+        manager: screen_manager
+    RegisterScreen:
+        id: register_screen
+        name: 'register'
+        manager: screen_manager
+    PinScreen:
+        id: pin_screen
+        name: 'pin'
+        manager: screen_manager
+    MainScreen:
+        id: main_screen
+        name: 'main'
+        manager: screen_manager
+
+<SplashScreen>:
+    BoxLayout:
+        size: root.size
+        Image:
+            source: "test-logo.PNG"
+
+<LoginScreen, RegisterScreen>:
+    GridLayout:
+        cols: 2
+        rows: 4
+        Label:
+            id: login_error
+            text: 'Invalid username or password.'
+            text_size: self.size
+            height: '-100dp'
+            size_hint_y: None
+            halign: 'right'
+            valign: 'middle'
+        Label:
+            text: 'Username'
+        TextInput:
+            id: username_field
+            multiline: False
+            on_text_validate: root.check_information()
+        Label:
+            text: 'Password'
+        TextInput:
+            id: password_field
+            multiline: False
+            password: True
+            on_text_validate: root.check_information()
+        Button:
+            text: root.button_text
+            on_release: root.check_information()
+
+<PinScreen>:
+    on_enter: root.check_pin_exists()
+    BoxLayout:
+        Label:
+            id: pin_text
+            text: root.label_text
+        TextInput:
+            id: pin_field
+            multiline: False
+            input_type: 'number'
+            on_text_validate: root.on_pin_entered()
+
+<MainScreen>:
+    GridLayout:
+        cols: 3
+        rows: 3
+        Label:
+            id: locker_a
+            text: 'Locker A (locked)'
+        Label:
+            id: locker_b
+            text: 'Locker B (locked)'
+        Label:
+            id: locker_c
+            text: 'Locker C (locked)'
+        Button:
+            id: button_hire_a
+            text: 'Hire Locker A'
+            on_release: root.hire_locker(self)
+        Button:
+            id: button_hire_b
+            text: 'Hire Locker B'
+            on_release: root.hire_locker(self)
+        Button:
+            id: button_hire_c
+            text: 'Hire Locker C'
+            on_release: root.hire_locker(self)
+        Label:
+            id: locker_label
+        Button:
+            id: lock_button
+            text: 'Unlock'
+            on_release: root.activate_locker()
