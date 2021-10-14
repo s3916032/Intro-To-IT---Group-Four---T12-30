@@ -7,7 +7,7 @@ title = LockBox
 package.name = lockbox
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = com.test.lockbox
+package.domain = org.test
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -28,10 +28,10 @@ source.include_exts = .
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1
+#version = 0.1
 
 # (str) Application versioning (method 2)
-#version.regex = __version__ = "0.1"
+version.regex = __version__ = "0.1"
 version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
