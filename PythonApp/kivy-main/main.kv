@@ -74,28 +74,52 @@
         rows: 3
         Label:
             id: locker_a
+            text_size: self.size
             text: 'Locker A (locked)'
+            halign: 'center'
+            valign: 'middle'
         Label:
             id: locker_b
+            text_size: self.size
             text: 'Locker B (locked)'
+            halign: 'center'
+            valign: 'middle'
         Label:
             id: locker_c
+            text_size: self.size
             text: 'Locker C (locked)'
+            halign: 'center'
+            valign: 'middle'
         Button:
             id: button_hire_a
             text: 'Hire Locker A'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
             on_release: root.hire_locker(self)
         Button:
             id: button_hire_b
             text: 'Hire Locker B'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
             on_release: root.hire_locker(self)
         Button:
             id: button_hire_c
             text: 'Hire Locker C'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
             on_release: root.hire_locker(self)
         Label:
             id: locker_label
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
         Button:
             id: lock_button
             text: 'Unlock'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
             on_release: root.activate_locker()
