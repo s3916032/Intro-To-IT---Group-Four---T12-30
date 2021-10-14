@@ -10,7 +10,7 @@ package.name = lockbox
 package.domain = com.test.lockbox
 
 # (str) Source code where the main.py live
-source.dir = .
+source.dir = kivy-main
 
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = .
@@ -28,11 +28,11 @@ source.include_exts = .
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-#version = 0.1
+version = 0.1
 
 # (str) Application versioning (method 2)
-version.regex = __version__ = "0.1"
-version.filename = %(source.dir)s/main.py
+#version.regex = __version__ = "0.1"
+#version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
