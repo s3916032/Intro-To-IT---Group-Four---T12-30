@@ -7,13 +7,13 @@ title = LockBox
 package.name = lockbox
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = org.test.lockbox
 
 # (str) Source code where the main.py live
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = .
+source.include_exts = py,png,jpg,kv,atlas
 
 # (list) List of inclusions using pattern matching
 #source.include_patterns = assets/*,images/*.png
@@ -28,15 +28,15 @@ source.include_exts = .
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-#version = 0.1
+version = 0.1
 
 # (str) Application versioning (method 2)
-version.regex = __version__ = "0.1"
-version.filename = %(source.dir)s/main.py
+#version.regex = __version__ = "0.1"
+#version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3, kivy, kivymd
+requirements = python3,kivy,kivymd
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
