@@ -596,6 +596,7 @@ def check_integrity():
         file.close()
 
 
-if __name__ == "__main__":
-    test_app = TestApp()  # build and then run the test app
-    test_app.run()
+#if __name__ == "__main__":
+    #test_app = TestApp()  # build and then run the test app
+    #test_app.run()
+TestApp().run()
