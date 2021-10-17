@@ -554,13 +554,13 @@ class WindowManager(ScreenManager):
 
 
 # application class - subclass of an app - allows building apps as objects
-class TestApp(App):
+class MainApp(App):
     """
     Creates a new kivy App with the ScreenManager as the root widget
     """
 
     def __init__(self, **kwargs):
-        super(TestApp, self).__init__(**kwargs)
+        super(MainApp, self).__init__(**kwargs)
         self.user = None  # the current user of the app
 
     @property
