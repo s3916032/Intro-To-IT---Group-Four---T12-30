@@ -2,8 +2,8 @@
 # It also implements Kivy 2.0.0 for the creation and rendering of applications and widgets
 
 # The following people are credited:
-#   Arjun Kumar - mobile porting
-#   Liam Folie - interface design
+#   Arjun Kumar - mobile building
+#   Liam Folie - figma interface design
 
 # ----------------------------------------------------------------------------------------------------------
 #   [NOTE]:
@@ -24,13 +24,14 @@
 #       Login - layout, button to switch to register, switch to pin if logged in
 #       Register - layout, button to switch to login
 #       PIN - layout, error label
-#       Main page - layout, generate token, open/lock lockers (locker is_hired, is_locked)
+#       Main page - layout
 
 # Possible additions:
 #   Account page (log out, change PIN, change username/password)
 #   Email address (not very necessary for a basic prototype)
 #   Store multiple accounts (would need to change file read to read pin at top line, all users below)
 #   Timeout tokens after around 1 hour
+#   Locker hire cancellation confirmation
 
 
 import kivy
@@ -496,47 +497,77 @@ class MainScreen(Screen):
             print(repr(locker))
 
     def hire_locker(self, button):
-        # calls a locker's hire or cancel_hire method, passing the app user as the user
-        if button == self.ids.button_hire_a:
-            if main_app.user.current_locker is None:
-                self.lockers[0].hire(main_app.user)
-                self.ids.locker_label.text = 'Locker ' + self.lockers[0].name + ' hired.'
-                self.ids.button_hire_a.text = 'Cancel Locker A'
+        # calls a locker's hire or cancel_hire method, passing the button which called the method
+        # set the specified locker in the list to hired, and reset the remaining lockers
+        for _ in self.lockers:
+            locker_index = int(0)  # locker in the list which corresponds to the button
+            if button == self.ids.button_hire_a:
+                locker_index = 0
+            elif button == self.ids.button_hire_b:
+                locker_index = 1
+            elif button == self.ids.button_hire_c:
+                locker_index = 2
+
+            buttons = [self.ids.button_hire_a, self.ids.button_hire_b, self.ids.button_hire_c]  # reverse button list
+            locker = self.lockers[locker_index]  # the locker in the locker list the button controls
+            current_locker = main_app.user.current_locker  # the locker the user is currently hiring
+
+            # hire or cancel the corresponding locker
+            if current_locker is not locker:
+                # lock and cancel the user's current locker if there is one
+                if current_locker is not None:
+                    current_locker.lock()
+                    current_locker.cancel_hire()
+                locker.hire()  # hire the locker which corresponds with the button
+
+                count = 0  # current index of button list
+                for each in buttons:
+                    each.text = 'Hire Locker ' + self.lockers[count].name  # set all the buttons to 'hire'
+                    count += 1
+                button.text = 'Cancel Locker ' + locker.name  # change the button text
+                self.ids.locker_label.text = 'Locker ' + locker.name + ' hired.'
+            elif current_locker == locker:
+                # cancel and lock the locker if it's already being hired
+                locker.lock()
+                self.ids.lock_button.text = 'Unlock'
+                locker.cancel_hire()
+                self.set_label_states()  # set the label texts
+                button.text = 'Hire Locker ' + locker.name  # change the button text
+                self.ids.locker_label.text = 'Locker ' + locker.name + ' cancelled.'
             else:
-                self.lockers[0].cancel_hire(main_app.user)
-                self.ids.locker_label.text = ''
-                self.ids.button_hire_a.text = 'Hire Locker A'
-        elif button == self.ids.button_hire_b:
-            if main_app.user.current_locker is None:
-                self.lockers[1].hire(main_app.user)
-                self.ids.locker_label.text = 'Locker ' + self.lockers[1].name + ' hired.'
-                self.ids.button_hire_b.text = 'Cancel Locker B'
-            else:
-                self.lockers[1].cancel_hire(main_app.user)
-                self.ids.locker_label.text = ''
-                self.ids.button_hire_b.text = 'Hire Locker B'
-        elif button == self.ids.button_hire_c:
-            if main_app.user.current_locker is None:
-                self.lockers[2].hire(main_app.user)
-                self.ids.locker_label.text = 'Locker ' + self.lockers[2].name + ' hired.'
-                self.ids.button_hire_c.text = 'Cancel Locker C'
-            else:
-                self.lockers[2].cancel_hire(main_app.user)
-                self.ids.locker_label.text = ''
-                self.ids.button_hire_c.text = 'Hire Locker C'
+                print("An error has occurred.")  # this should never happen, but just in case...
 
     def activate_locker(self):
         # calls the currently hired locker's unlock or lock button
         locker = main_app.user.current_locker  # cache the current locker
         if locker is not None:
             if locker.is_locked:
-                locker.unlock(main_app.user)
-                self.ids.lock_button.text = 'Unlock'
-            else:
-                locker.lock(main_app.user)
+                locker.unlock()
                 self.ids.lock_button.text = 'Lock'
+            else:
+                locker.lock()
+                self.ids.lock_button.text = 'Unlock'
         else:
-            print("Locker is not being hired.")
+            self.ids.locker_label.text = 'No Lockers Hired'
+        self.set_label_states()  # set the label text
+
+    def set_label_states(self):
+        # sets the text of each label to the corresponding locker's current state
+        # this is a very lazy method and could be greatly optimised... but meh
+        if self.lockers[0].is_locked:
+            self.ids.locker_a.text = 'Locker A ' + '(locked)'
+        else:
+            self.ids.locker_a.text = 'Locker A ' + '(unlocked)'
+
+        if self.lockers[1].is_locked:
+            self.ids.locker_b.text = 'Locker B ' + '(locked)'
+        else:
+            self.ids.locker_b.text = 'Locker B ' + '(unlocked)'
+
+        if self.lockers[2].is_locked:
+            self.ids.locker_c.text = 'Locker C ' + '(locked)'
+        else:
+            self.ids.locker_c.text = 'Locker C ' + '(unlocked)'
 
 
 class WindowManager(ScreenManager):
