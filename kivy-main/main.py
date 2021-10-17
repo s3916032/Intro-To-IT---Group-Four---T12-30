@@ -53,6 +53,7 @@ from random import random
 kivy.require("2.0.0")  # developer requires kivy 2.0.0
 ILLEGAL_CHARS = "/\\][}{)(`~ "
 
+__version__ = "0.1"
 
 def generate_token():
     # generates a random four-digit string and returns it
