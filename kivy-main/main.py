@@ -597,7 +597,7 @@ class MainApp(App):
         self.__current_user = value
 
     def build(self):
-        Window.size = (250, 500)  # set window size to 250 x 500
+        #Window.size = (250, 500)  # set window size to 250 x 500
         check_integrity()  # check the user file
         return WindowManager()
 
