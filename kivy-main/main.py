@@ -55,6 +55,7 @@ ILLEGAL_CHARS = "/\\][}{)(`~ "
 
 __version__ = "0.1"
 
+
 def generate_token():
     # generates a random four-digit string and returns it
     token = "{:04d}".format(int(random() * 10000))  # format to four digits
@@ -599,4 +600,4 @@ def check_integrity():
 
 if __name__ == "__main__":
     main_app = MainApp()  # build and then run the test app
-    main_app().run()
+    main_app.run()

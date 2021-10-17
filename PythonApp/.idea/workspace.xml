@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="594e3f3a-dd8c-47ca-9109-1fe29bbe82d6" name="Default Changelist" comment="Main Screen nearly complete, lockers and token generation">
+      <change beforePath="$PROJECT_DIR$/.idea/PythonApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kivy-main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/kivy-main/main.py" afterDir="false" />
     </list>
@@ -68,7 +70,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PythonVirtualApp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kivy-main" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -224,6 +226,7 @@
       <workItem from="1634209208771" duration="650000" />
       <workItem from="1634441963461" duration="1463000" />
       <workItem from="1634445398467" duration="104000" />
+      <workItem from="1634447707262" duration="629000" />
     </task>
     <task id="LOCAL-00001" summary="Properly imported package">
       <created>1633409442873</created>
@@ -316,7 +319,7 @@
     <SUITE FILE_PATH="coverage/PythonApp$kivydraft.coverage" NAME="kivydraft Coverage Results" MODIFIED="1633657145433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kivy-main" />
     <SUITE FILE_PATH="coverage/PythonApp$kivy_main__1_.coverage" NAME="kivy-main (1) Coverage Results" MODIFIED="1634196435661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kivy-main" />
     <SUITE FILE_PATH="coverage/PythonApp$verytemp.coverage" NAME="verytemp Coverage Results" MODIFIED="1633918060847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kivy-main" />
-    <SUITE FILE_PATH="coverage/PythonApp$main.coverage" NAME="main Coverage Results" MODIFIED="1634445447572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kivy-main" />
+    <SUITE FILE_PATH="coverage/PythonApp$main.coverage" NAME="main Coverage Results" MODIFIED="1634448292563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kivy-main" />
     <SUITE FILE_PATH="coverage/PythonApp$kivy_test.coverage" NAME="kivy-test Coverage Results" MODIFIED="1634192401015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kivy-main" />
     <SUITE FILE_PATH="coverage/PythonApp$appdraft.coverage" NAME="appdraft Coverage Results" MODIFIED="1633574911123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>
