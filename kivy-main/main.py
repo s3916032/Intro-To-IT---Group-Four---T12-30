@@ -87,6 +87,7 @@ class User:
         # represent overload
         represent = 'User ' + self.username + ' is hiring ' + ('no locker.' if self.is_hiring is False else
                                                                'Locker ' + self.current_locker.name)
+        return represent
 
     @property
     def username(self):
