@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="594e3f3a-dd8c-47ca-9109-1fe29bbe82d6" name="Default Changelist" comment="Main Screen nearly complete, lockers and token generation">
+      <change beforePath="$PROJECT_DIR$/.idea/PythonApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kivy-main/kivy-test.py" beforeDir="false" afterPath="$PROJECT_DIR$/kivy-main/kivy-main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kivy-main/test.kv" beforeDir="false" afterPath="$PROJECT_DIR$/kivy-main/main.kv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kivy-main/user_info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kivy-main/Kivy_App_Life_Cycle.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +70,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PythonVirtualApp" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -222,7 +222,9 @@
       <workItem from="1633847470421" duration="516000" />
       <workItem from="1633916072544" duration="30249000" />
       <workItem from="1634121606320" duration="3895000" />
-      <workItem from="1634188853793" duration="7189000" />
+      <workItem from="1634188853793" duration="7793000" />
+      <workItem from="1634209208771" duration="650000" />
+      <workItem from="1634441963461" duration="1462000" />
     </task>
     <task id="LOCAL-00001" summary="Properly imported package">
       <created>1633409442873</created>
