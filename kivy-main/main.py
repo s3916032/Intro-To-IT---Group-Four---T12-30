@@ -218,7 +218,7 @@ class Locker:
     def unlock(self, user=None):
         # unlocks the locker after checking if the user's token is valid
         if user is None:
-            user = test_app.user
+            user = main_app.user
         if token_is_equal(self.current_token, user.current_token):
             self.is_locked = False
             print(user.username + " unlocked Locker " + self.name)
@@ -228,7 +228,7 @@ class Locker:
     def lock(self, user=None):
         # locks the locker after checking if the user's token is valid
         if user is None:
-            user = test_app.user
+            user = main_app.user
         if token_is_equal(self.current_token, user.current_token):
             self.is_locked = True
             print(user.username + " unlocked Locker " + self.name)
@@ -240,7 +240,7 @@ class Locker:
         # this method should be called by the attached button
         # by default, user is the application user
         if user is None:
-            user = test_app.user  # if no user is passed, set it to the app user
+            user = main_app.user  # if no user is passed, set it to the app user
 
         if not user.is_hiring:
             self.is_hired = True  # set the locker to hired
@@ -258,7 +258,7 @@ class Locker:
         # this method should be called by the attached button
         # by default, user is the application user
         if user is None:
-            user = test_app.user  # if no user is passed, set it to the app user
+            user = main_app.user  # if no user is passed, set it to the app user
 
         if user.is_hiring:
             self.is_hired = False  # set the locker to not hired
@@ -314,7 +314,7 @@ class LoginScreen(Screen):
                 # if the user is in the line...
                 if str(self.current_user) in line:
                     print("User validated. Name: " + self.current_user['name'] + " Pass: " + self.current_user['pass'])
-                    test_app.user = User(self.current_user['name'], self.current_user['pass'])  # set app user
+                    main_app.user = User(self.current_user['name'], self.current_user['pass'])  # set app user
                     self.current_user['name'] = ''  # clear the username...
                     self.current_user['pass'] = ''  # ...and the password
                     self.switch_pin()
@@ -473,7 +473,7 @@ class PinScreen(Screen):
                 self.on_pin_entered()  # finally, run the check or set method again
             else:
                 print("An error has occurred. The application will now exit.")
-                test_app.stop()  # exit the application
+                main_app.stop()  # exit the application
 
     def switch_main(self):
         # switches the screen manager's current window to main
@@ -497,42 +497,42 @@ class MainScreen(Screen):
     def hire_locker(self, button):
         # calls a locker's hire or cancel_hire method, passing the app user as the user
         if button == self.ids.button_hire_a:
-            if test_app.user.current_locker is None:
-                self.lockers[0].hire(test_app.user)
+            if main_app.user.current_locker is None:
+                self.lockers[0].hire(main_app.user)
                 self.ids.locker_label.text = 'Locker ' + self.lockers[0].name + ' hired.'
                 self.ids.button_hire_a.text = 'Cancel Locker A'
             else:
-                self.lockers[0].cancel_hire(test_app.user)
+                self.lockers[0].cancel_hire(main_app.user)
                 self.ids.locker_label.text = ''
                 self.ids.button_hire_a.text = 'Hire Locker A'
         elif button == self.ids.button_hire_b:
-            if test_app.user.current_locker is None:
-                self.lockers[1].hire(test_app.user)
+            if main_app.user.current_locker is None:
+                self.lockers[1].hire(main_app.user)
                 self.ids.locker_label.text = 'Locker ' + self.lockers[1].name + ' hired.'
                 self.ids.button_hire_b.text = 'Cancel Locker B'
             else:
-                self.lockers[1].cancel_hire(test_app.user)
+                self.lockers[1].cancel_hire(main_app.user)
                 self.ids.locker_label.text = ''
                 self.ids.button_hire_b.text = 'Hire Locker B'
         elif button == self.ids.button_hire_c:
-            if test_app.user.current_locker is None:
-                self.lockers[2].hire(test_app.user)
+            if main_app.user.current_locker is None:
+                self.lockers[2].hire(main_app.user)
                 self.ids.locker_label.text = 'Locker ' + self.lockers[2].name + ' hired.'
                 self.ids.button_hire_c.text = 'Cancel Locker C'
             else:
-                self.lockers[2].cancel_hire(test_app.user)
+                self.lockers[2].cancel_hire(main_app.user)
                 self.ids.locker_label.text = ''
                 self.ids.button_hire_c.text = 'Hire Locker C'
 
     def activate_locker(self):
         # calls the currently hired locker's unlock or lock button
-        locker = test_app.user.current_locker  # cache the current locker
+        locker = main_app.user.current_locker  # cache the current locker
         if locker is not None:
             if locker.is_locked:
-                locker.unlock(test_app.user)
+                locker.unlock(main_app.user)
                 self.ids.lock_button.text = 'Unlock'
             else:
-                locker.lock(test_app.user)
+                locker.lock(main_app.user)
                 self.ids.lock_button.text = 'Lock'
         else:
             print("Locker is not being hired.")
@@ -555,13 +555,13 @@ class WindowManager(ScreenManager):
 
 
 # application class - subclass of an app - allows building apps as objects
-class TestApp(App):
+class MainApp(App):
     """
     Creates a new kivy App with the ScreenManager as the root widget
     """
 
     def __init__(self, **kwargs):
-        super(TestApp, self).__init__(**kwargs)
+        super(MainApp, self).__init__(**kwargs)
         self.user = None  # the current user of the app
 
     @property
@@ -598,5 +598,5 @@ def check_integrity():
 
 
 if __name__ == "__main__":
-    test_app = TestApp()  # build and then run the test app
-    test_app().run()
+    main_app = MainApp()  # build and then run the test app
+    main_app().run()
