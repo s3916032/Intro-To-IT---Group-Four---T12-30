@@ -600,4 +600,4 @@ def check_integrity():
 
 if __name__ == "__main__":
     main_app = MainApp()  # build and then run the test app
-    main_app.run()
+    main_app().run()
