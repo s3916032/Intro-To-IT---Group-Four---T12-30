@@ -82,30 +82,27 @@ a.sub-button:active {
 }
 
 nav#breadcrumb-container {
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  display: flex;
   border-left-width: 6px;
   border-left-style: solid;
   border-left-color: transparent;
   border-radius: 1px;
   text-align: center;
   min-width: inherit;
-  margin: 20px auto 10px auto;
+  margin: 10px auto;
   transition: border-left-width 0.2s 0.4s;
 }
 
 nav#breadcrumb-container div {
   position: relative;
   margin-right: 5px;
-  width: 100%;
+  width: 25%;
 }
 
 nav#breadcrumb-container a {
   text-decoration: none solid;
   color: white;
-  width: auto;
+  flex-shrink: 1;
   font-size: 0.9em;
   white-space: pre;
   background: border-box linear-gradient(to bottom, #65a9f7, #3277df);
@@ -216,12 +213,10 @@ div.line {
   border-left: 6px solid rgba(40, 40, 80, 0.4);
   height: 4px;
   padding: 0;
-  transition: border-left-width 0.2s 0.4s;
+  transition: border-left-width 0.6s;
 }
 
-/* Arjun tags */
-.tab {
-  margin-left: 40px;
+.tab { margin-left: 40px;
 }
 
 .row {
@@ -231,7 +226,6 @@ div.line {
 .column {
   flex: 50%;
 }
-/* */
 
 /* If the screen is larger than 1080px, increase the font-size and horizontal margin */
 @media only screen and (min-width: 1080px) {
@@ -255,7 +249,7 @@ div.line {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     border: none;
   }
 
