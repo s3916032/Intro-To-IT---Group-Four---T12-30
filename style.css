@@ -80,6 +80,7 @@ a.sub-button:active {
   border-left-color: rgba(235, 146, 45, 0.6);
   transition: border-left-width 0.05s, margin-right 0.05s;
 }
+
 nav#breadcrumb-container {
   display: grid;
   grid-gap: 5px;
@@ -138,48 +139,6 @@ nav#breadcrumb-container a:active {
 nav#technav-container {
   display: grid;
 }
-/* start of nav drop down */
-nav.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-nav.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-nav.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-nav.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-nav.dropdown-content a:hover {background-color: #f1f1f1}
-
-nav.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-nav.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
-
-/* end of nav drop down */
 
 div.main-header {
   color: white;
