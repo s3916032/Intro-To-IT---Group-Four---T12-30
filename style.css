@@ -1,14 +1,16 @@
 /*
   Stylesheet started by Simon Bird (s3916032)
-  For use with Assignment 2 - Team Project
+  For use with Assignment 2 - The IT World
+  And Assignment 3 - Team Project
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+
 body {
-  font-family: 'Arial Nova', Arial, sans-serif;
+  font-family: Comfortaa, Arial, cursive;
   font-size: 18px;
   color: #393939;
-  background-image: linear-gradient(to bottom, #cdcdcd, #e3e3e3 200px 90%, #6c6c6c);
-  background-blend-mode: darken;
+  background-color: #f2f2f2;
   margin: 10px 10% 40px 10%;
   min-width: 100px;
 }
@@ -18,6 +20,8 @@ header {
   width: inherit;
   margin: auto;
   min-width: inherit;
+  font-weight: 300;
+  font-display: swap;
 }
 
 header img {
@@ -25,6 +29,8 @@ header img {
   height: auto;
   max-width: 600px;
   max-height: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 header h1 {
@@ -39,11 +45,13 @@ footer {
   color: white;
   min-width: inherit;
   text-align: center;
-  text-shadow: -1px 0px 2px #4e4e4e;
+  width: inherit;
+  padding: 20px;
+  background-color: rgba(55, 55, 55, 0.9);
 }
 
 footer a {
-  text-decoration: none solid;
+  text-decoration: dotted solid;
   color: white;
 }
 
@@ -53,32 +61,28 @@ a.sub-button {
   flex-shrink: 1;
   font-size: 0.9em;
   text-align: center;
-  background: border-box linear-gradient(to bottom, #f19f41, #e78b1f);
+  background: border-box linear-gradient(to bottom, #c24455, #aa1b2e);
   border-radius: 2px;
-  padding: 10px 2%;
+  padding: 15px 2%;
   min-width: 200px;
   border-left-style: solid;
-  border-left-color: rgba(204, 121, 28, 0.4);
+  border-left-color: rgba(77, 28, 28, 0.6);
   border-left-width: 3px;
   display: block;
-  transition: border-left-width 0.2s, margin-right 0.2s;
+  transition: border-left-width 0.1s, margin-right 0.1s;
 }
 
 a.sub-button:hover {
-  background: border-box linear-gradient(to bottom, #eeb06a, #e29337);
+  background: border-box linear-gradient(to bottom, #cf5061, #b6283b);
   margin-right: -12px;
   border-left-width: 12px;
-  border-left-style: solid;
-  border-left-color: rgba(204, 121, 28, 0.4);
-  transition: border-left-width 0.2s, margin-right 0.2s, background-color 0.2s;
+  transition: border-left-width 0.1s, margin-right 0.1s;
 }
 
 a.sub-button:active {
-  background: border-box #aa6616;
+  background: border-box #5e151e;
   margin-right: 0;
   border-left-width: 0px;
-  border-left-style: solid;
-  border-left-color: rgba(235, 146, 45, 0.6);
   transition: border-left-width 0.05s, margin-right 0.05s;
 }
 
@@ -87,14 +91,10 @@ nav#breadcrumb-container {
   grid-gap: 5px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  border-left-width: 6px;
-  border-left-style: solid;
-  border-left-color: transparent;
   border-radius: 1px;
   text-align: center;
   min-width: inherit;
   margin: 20px auto 10px auto;
-  transition: border-left-width 0.2s 0.4s;
 }
 
 nav#breadcrumb-container div {
@@ -109,31 +109,27 @@ nav#breadcrumb-container a {
   width: auto;
   font-size: 0.9em;
   white-space: pre;
-  background: border-box linear-gradient(to bottom, #65a9f7, #3277df);
+  background: border-box linear-gradient(to bottom, #ec344c, #bd2a3d);
   border-radius: 2px;
   padding: 6px 10%;
   border-left-style: solid;
-  border-left-color: rgba(60, 60, 120, 0.6);
+  border-left-color: rgba(77, 28, 28, 0.6);
   border-left-width: 3px;
   display: block;
-  transition: border-left-width 0.2s, margin-right 0.2s;
+  transition: border-left-width 0.1s, margin-right 0.1s;
 }
 
 nav#breadcrumb-container a:hover {
-  background: border-box linear-gradient(to bottom, #7db5f5, #4784e0);
+  background: border-box linear-gradient(to bottom, #ee485e, #d42f44);
   margin-right: -12px;
   border-left-width: 12px;
-  border-left-style: solid;
-  border-left-color: rgba(40, 40, 80, 0.4);
-  transition: border-left-width 0.2s, margin-right 0.2s, background-color 0.2s;
+  transition: border-left-width 0.1s, margin-right 0.1s;
 }
 
 nav#breadcrumb-container a:active {
-  background: border-box #274677;
+  background: border-box #761a26;
   margin-right: 0;
   border-left-width: 0px;
-  border-left-style: solid;
-  border-left-color: rgba(40, 40, 80, 0.4);
   transition: border-left-width 0.05s, margin-right 0.05s;
 }
 
@@ -143,15 +139,16 @@ nav#technav-container {
 
 div.main-header {
   color: white;
-  background: border-box linear-gradient(to bottom, #65a9f7, #4a87e2);
+  background: border-box linear-gradient(to bottom, #ee485e , #d42f44 50%);
   border-left-width: 6px;
   border-left-style: solid;
   border-left-color: rgba(40, 40, 80, 0.4);
   padding: 10px 20px;
   margin-bottom: 20px;
+  margin-top: 20px;
   border-radius: 2px;
   min-width: inherit;
-  transition: border-left-width 0.2s 0.4s;
+  transition: border-left-width 0.4s;
 }
 
 header.sub-header {
@@ -170,7 +167,7 @@ div.main-container {
   padding: 20px 10% 20px calc(10% + 12px);
   margin-bottom: 20px;
   min-width: inherit;
-  transition: border-left-width 0.2s 0.4s;
+  transition: border-left-width 0.4s;
 }
 
 div.sub-container {
@@ -209,15 +206,6 @@ div.image-container img {
   margin-top: 30px;
   max-height: 575px;
   border-radius: 5px;
-}
-
-div.line {
-  width: auto;
-  background-color: #94a2c8;
-  border-left: 6px solid rgba(40, 40, 80, 0.4);
-  height: 4px;
-  padding: 0;
-  transition: border-left-width 0.2s 0.4s;
 }
 
 /* Arjun tags */
