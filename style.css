@@ -8,6 +8,7 @@ body {
   font-size: 18px;
   color: #393939;
   background-image: linear-gradient(to bottom, #cdcdcd, #e3e3e3 200px 90%, #6c6c6c);
+  background-blend-mode: darken;
   margin: 10px 10% 40px 10%;
   min-width: 100px;
 }
@@ -82,27 +83,30 @@ a.sub-button:active {
 }
 
 nav#breadcrumb-container {
-  display: flex;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   border-left-width: 6px;
   border-left-style: solid;
   border-left-color: transparent;
   border-radius: 1px;
   text-align: center;
   min-width: inherit;
-  margin: 10px auto;
+  margin: 20px auto 10px auto;
   transition: border-left-width 0.2s 0.4s;
 }
 
 nav#breadcrumb-container div {
   position: relative;
   margin-right: 5px;
-  width: 25%;
+  width: 100%;
 }
 
 nav#breadcrumb-container a {
   text-decoration: none solid;
   color: white;
-  flex-shrink: 1;
+  width: auto;
   font-size: 0.9em;
   white-space: pre;
   background: border-box linear-gradient(to bottom, #65a9f7, #3277df);
@@ -213,10 +217,12 @@ div.line {
   border-left: 6px solid rgba(40, 40, 80, 0.4);
   height: 4px;
   padding: 0;
-  transition: border-left-width 0.6s;
+  transition: border-left-width 0.2s 0.4s;
 }
 
-.tab { margin-left: 40px;
+/* Arjun tags */
+.tab {
+  margin-left: 40px;
 }
 
 .row {
@@ -226,6 +232,7 @@ div.line {
 .column {
   flex: 50%;
 }
+/* */
 
 /* If the screen is larger than 1080px, increase the font-size and horizontal margin */
 @media only screen and (min-width: 1080px) {
@@ -249,7 +256,7 @@ div.line {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     border: none;
   }
 
