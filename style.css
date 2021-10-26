@@ -188,6 +188,17 @@ div.sub-container img {
   min-width: 150px;
 }
 
+div.sub-container table {
+  text-align: center;
+  width: auto;
+  margin: auto;
+}
+
+div.sub-container table th {
+  width: 33%;
+  margin: auto;
+}
+
 div.image-container {
   font-size: 12px;
   text-align: center;
