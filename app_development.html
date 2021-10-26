@@ -1,0 +1,108 @@
+<!-- Template started by Simon Bird (s3916032)
+     If you're using this template, make sure  _not_ to change me! You could get done! Really! -->
+<!DOCTYPE html>
+<html lang="en-au" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Team Bootleggers | App Development</title>
+  </head>
+  <body>
+    <!-- Main title goes here -->
+    <header>
+      <img src="img/bootleggers.png" alt="Team Bootleggers Logo"/>
+      <a id="top"></a>
+    </header>
+    <nav id="breadcrumb-container">
+      <!-- Breadcrumb (reduce z-index by 1 each button)-->
+      <div style="z-index:4"><a href="./About_Us.html">About Us</a></div>
+      <div style="z-index:3"><a href="./industry.html">Careers</a></div>
+      <div style="z-index:2"><a href="./tech.html">Technology</a></div>
+      <div style="z-index:1"><a href="./project.html">Team Project</a></div>
+    </nav>
+    <div class="main-header">
+      <h2>Mobile App Development</h2>
+    </div>
+    <div class="main-container">
+      <header class="sub-header">
+        <h2>Simon Bird</h2>
+        <h4>Back-end Developer</h4>
+      </header><br>
+      <div class="sub-container" style="text-align: center;">
+        <h4>I was the lead programmer for the app prototype. I have previous experience
+          in Python and was thus the best fit for the role. I wrote and developed the mobile
+          app prototype in Python utilizing the Kivy module.</h4>
+      </div><br>
+      <div class="sub-container">
+        <h3>Scope and Limits </h3>
+        <p>When reviewing Liam’s initial UI design, I decided which parts of the
+          application were feasible enough to produce in a couple of weeks. I chose the
+          splash page, login and register pages, PIN page and a simple page with a few
+          buttons to hire and unlock lockers.</p>
+        <p>It was important to develop the
+          functionality of the app prior to the design, so Liam’s rigorous app design was,
+          sadly, unlikely to see itself as fully functional.</p>
+        <p>The splash page would be a simple logo on the screen which transitions to the
+          login page after a few seconds. A simple step, but an important one. Once a
+          splash screen and transition is set up, I can create more screens for the app.</p>
+        <p>The login page is a basic username/password field. I pondered the possibilities
+          of user storage: Should I store user data in a separate file, or temporarily keep it
+          in memory (as a variable)? I opted for the separate file since I could learn how
+          to properly manipulate files in Python. The user file only stores one entry, which
+          should be enough to showcase the login function.</p>
+        <p>The register page is nearly identical to the login page, but with one key
+          difference: it saves the file instead of reading it. Neat!</p>
+        <p>The PIN page reads the user file for a different PIN entry. Only one PIN should
+          be saved at once, much like the user file.</p>
+        <p>Finally, the main page has three buttons. Each button unlocks or locks a ‘locker’
+          (this was changed to hiring the locker before unlocking it with a separate
+          button), which is a simple text box with the locker’s ID. The app should only
+          allow the user to unlock a locker if the locker has shared a randomly generated
+          token with them. The user can also change their user details from this page and
+          log out (this was not incorporated in the end).</p><br>
+        <a class="sub-button" href="https://appetize.io/app/9hzcd15ah7pv0zave9ydqjz4nc">App Sandbox</a><br>
+        <p>The final application would need a range of improvements. However, with the
+          current prototype and Liam’s UI example, it is easy to see the direction to take
+          with continuing development:</p>
+        <ul>
+          <li>The login and register page need buttons to switch between.</li>
+          <li>The user info should be securely stored online and allow multiple users at once.</li>
+          <li>The layout of each screen needs to be updated to match the design prototype.</li>
+          <li>The user should have access to their account information.</li>
+          <li>The locker functionality should be overhauled once physical artifacts are created.</li>
+        </ul>
+        <p>And so forth.</p>
+      </div><br>
+      <div class="sub-container">
+        <h3>Tools and Technologies</h3>
+        <p>Early on, we discussed which platform to develop the app with. We agreed that
+          Python 3.9 is a good choice, as we have considerable creative freedom creating with
+          it. I could also incorporate third-party modules to assist with mobile-specific
+          development.</p>
+        <p>The majority of the development would be done through JetBrains’ PyCharm
+          (2021.1.3), a robust and very famous Python IDE. We each have some experience with
+          this program, as our programming classes extensively involve it.</p>
+        <p>The original applet module that Liam shared was called ‘guizero’ (1.2.0) by Laura
+          Sach. This was useful as a very basic app draft.</p>
+        <p>The newer mobile application module is called ‘Kivy’ (2.0.0). I have never used Kivy
+          prior to this project.</p>
+        <p>Each of these are free to use, with PyCharm offering a free student edition with
+          additional resources.</p>
+      </div><br>
+      <div class="sub-container">
+        <h3>Testing</h3>
+        <p>Testing the app would be done primarily by us. PyCharm allows rapid app testing
+          and debugging. If the Python project is hosted on GitHub, Arjun, Liam and Alan
+          could contribute to testing if desired. Unfortunately, it is impossible to package the
+          app in this phase.</p>
+        <p>Thus, user testing is essentially impossible. Arjun’s role is important here; once the
+          app is ported to mobile, we could show it to users and receive real feedback.</p>
+      </div><br>
+    </div>
+    <footer>
+      <a href="#top">Back to top</a>
+      <!-- Proprietary information abound -->
+    </footer>
+  </body>
+</html>
