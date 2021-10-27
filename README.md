@@ -18,3 +18,6 @@ Credits:
 - UIX Designs by Liam Folie, built through Figma.
 - Website technology backgrounds by Simon Bird  
 - MBTI tests from 16Personalities
+
+Thank you everybody! Have a wonderful Summer.  
+\- Simon
